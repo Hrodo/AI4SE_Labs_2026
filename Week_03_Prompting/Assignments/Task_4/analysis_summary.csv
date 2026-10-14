@@ -1,0 +1,7 @@
+prompt,model,predictions_file,questions,correct,accuracy,macro_f1,empty_f1,nonempty_f1,balanced_f1,partial_credit,zero_f1,execution_errors,recorded_time_seconds
+STAR,GPT-6.1 Sol,restaurants_dataset_predictions_star.csv,155,147,0.9483870967741935,0.9851357717383233,1.0,0.9794289698164296,0.9897144849082148,6,2,0,119
+STAR,GPT-5.6 Sol,restaurants_dataset_predictions_star_old_model.csv,155,139,0.896774193548387,0.9635810103916601,1.0,0.9495987197384581,0.974799359869229,14,2,0,111
+ICIO,GPT-6.1 Sol,restaurants_dataset_predictions_icio.csv,155,147,0.9483870967741935,0.9851357717383233,1.0,0.9794289698164296,0.9897144849082148,6,2,0,60
+ICIO,GPT-5.6 Sol,restaurants_dataset_predictions_icio_old_model.csv,155,147,0.9483870967741935,0.9851357717383233,1.0,0.9794289698164296,0.9897144849082148,6,2,0,61
+APE,GPT-6.1 Sol,restaurants_dataset_predictions_ape.csv,155,147,0.9483870967741935,0.9851357717383233,1.0,0.9794289698164296,0.9897144849082148,6,2,0,67
+APE,GPT-5.6 Sol,restaurants_dataset_predictions_ape_old_model.csv,155,147,0.9483870967741935,0.9851357717383233,1.0,0.9794289698164296,0.9897144849082148,6,2,0,49

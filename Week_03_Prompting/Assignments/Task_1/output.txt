@@ -1,0 +1,105 @@
+TASK 1: STAR, ICIO, AND APE PROMPTS FOR TASK 2
+prompting frameworks chosen from https://frompting.com/frameworks
+
+======================================================================
+1. STAR: Situation, Task, Action, Result
+
+Why chosen: STAR separates the database situation, retrieval goal, actions,
+and final result. Its structure can be adapted to specify a database task 
+and the evaluation.
+Expected outcome: Accurate queries that handle multiple filters and irrelevant
+text, with fewer missed constraints.
+
+
+# BEGIN PROMPT
+
+Situation: A restaurant database contains information that users request 
+through natural-language questions. The database structure is provided in 
+restaurants-schema.csv, and the questions are in restaurants_dataset.csv.
+
+Task: Translate every question into a SQLite SELECT query returning exactly 
+two columns: restaurant house number and restaurant name.
+
+Action: Examine the database schema and interpret what each question is 
+asking. Identify the necessary tables, joins, and filtering conditions. 
+Construct the corresponding SQL query and verify that it correctly 
+represents the question. Ignore the result column and preserve all 
+questions, including duplicates.
+
+Result: Create 
+Week_03_Prompting/Assignments/Task_2/data/restaurants_dataset_predictions.csv 
+with the header question,predicted_sql. Keep the original questions in 
+their original order and write each SQL query on a single line in the 
+predicted_sql column.
+
+# END PROMPT
+
+
+
+======================================================================
+2. ICIO: Instruction, Context, Input, Output
+
+Why chosen: ICIO clearly separates instructions, database context, input data,
+and the output contract. This should fits structured natural language to SQL task.
+Expected outcome: Consistent, parseable predictions with correct schema usage
+and fewer formatting errors.
+
+
+# BEGIN PROMPT
+
+Instruction:
+Convert natural-language restaurant questions into valid read-only SQLite SELECT 
+queries. Each query must return exactly two columns: restaurant house number and 
+restaurant name, in that order.
+
+Context:
+The queries will be executed against a restaurant database and evaluated based 
+on how accurately they retrieve the requested information.
+
+Input:
+- restaurants_dataset.csv — contains the questions to translate. Ignore the 
+result column.
+- restaurants-schema.csv — defines the available database tables, columns, 
+and relationships.
+
+Output: Create 
+Week_03_Prompting/Assignments/Task_2/data/restaurants_dataset_predictions.csv 
+as a UTF-8 CSV.
+Requirements:
+- Header: question,predicted_sql
+- One row per input question, preserving original order and duplicates
+- Exact original question text in the question column
+- One single-line SQLite SELECT query in the predicted_sql column
+- No additional columns or explanations
+
+# END PROMPT
+
+
+
+
+
+======================================================================
+3. APE: Action, Purpose, Expectation
+
+Why chosen: APE connects the required action to its purpose and an
+success expectation, giving a direct way to communicate the retrieval task.
+Expected outcome: Faster inference time, relevant SQL queries and reliable 
+output formatting from a goal focused prompt.
+
+
+# BEGIN PROMPT
+
+Action: Using restaurants-schema.csv, generate one SQLite SELECT query for every 
+question in restaurants_dataset.csv. Each query should return the restaurant 
+house number and name, in that order. Ignore the result column.
+
+Purpose: Translate natural-language restaurant questions into accurate SQL queries 
+that can be evaluated against the database.
+
+Expectation: Save the predictions to 
+Week_03_Prompting/Assignments/Task_2/data/restaurants_dataset_predictions.csv as a 
+UTF-8 CSV with the header question,predicted_sql. Preserve every original question 
+and its order, including duplicates. Each predicted_sql value must contain a 
+single-line SQLite SELECT query.
+
+# END PROMPT
