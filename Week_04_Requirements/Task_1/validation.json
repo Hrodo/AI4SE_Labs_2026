@@ -1,0 +1,19 @@
+{
+  "validation_type": "offline_only",
+  "python": "3.13.12",
+  "packages": {
+    "langgraph": "1.2.16",
+    "openai": "2.54.0",
+    "pydantic": "2.14.1",
+    "python-dotenv": "1.2.4"
+  },
+  "corpus_documents": 20,
+  "corpus_chunks": 22,
+  "tests_passed": 24,
+  "live_api_run": false,
+  "partial_user_api_run_observed": true,
+  "generated_corpus_requirements": false,
+  "reported_cached_evidence_regression": "passed",
+  "unrecoverable_quote_export_regression": "passed",
+  "truncation_retry_and_adaptive_split_regression": "passed"
+}

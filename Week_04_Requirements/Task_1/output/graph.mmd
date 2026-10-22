@@ -1,0 +1,25 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	load(load)
+	extract(extract)
+	refine(refine)
+	validate(validate)
+	review(review)
+	export(export)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> load;
+	extract --> refine;
+	load --> extract;
+	refine --> validate;
+	review -.-> export;
+	review -.-> refine;
+	validate --> review;
+	export --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

@@ -1,0 +1,2 @@
+# Cached API responses may contain the input corpus and model outputs.
+output/.cache/
